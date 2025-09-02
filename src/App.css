@@ -1,0 +1,111 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: inline;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+h1{
+  font-size:1.1rem;
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+
+}
+#NavName{
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+#pokecontainer{
+  display: inline-block;
+  padding: 1% 5%;
+}
+
+#pokecard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.pokecard {
+  border: solid orange 0.5px;
+  padding: 2% 3%;
+  border-radius: 20px;
+  box-shadow: 5px 2px 10px goldenrod;
+  margin: 10px 5px;
+  text-align: center;
+
+  width: 200px; /* 👈 cada card mide lo mismo */
+  box-sizing: border-box;
+}
+
+#descripcion{
+  background-color: gold;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+form{
+  display: grid;
+  grid-template-columns: 1fr, 3fr;
+  width: 60%;
+  padding: 50px;
+  margin: 50px 150px;
+  box-shadow: 2px 2px 10px orange;
+  border-radius: 20px;
+}
+
+label{
+  color: black;
+  position: relative;
+  left: 10px;
+}
+
+input{
+border-color: orange;
+border-radius: 6px;
+height: 25px;
+margin: 5px;
+min-width: 90%;
+max-width: 50%;
+}
+
+#contactbutton{
+  height: 40px;
+  color: black;
+  background-color: gold;
+  border: none;
+  border-radius: 6px;
+  width: 200px;
+  position: relative;
+  left: 5px;
+  top: 10px;
+}
+
+.crianza{
+  height: 300px;
+  font-size: 3rem;
+}
+
+
+#footer{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 1rem;
+  background-color: gold;
+  height: 100px;
+  font-size: 0.5rem;
+}
+
