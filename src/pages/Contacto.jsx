@@ -3,7 +3,7 @@
 function Contacto(){
     return(
         <>
-        <h1 className="titulo">Poke Contacto</h1>
+        <h1 className="titulo">PokeContacto</h1>
         <form action="submit">
             <label htmlFor="nombre">Nombre</label>
             <input type="text" />

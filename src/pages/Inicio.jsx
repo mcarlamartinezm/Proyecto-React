@@ -1,20 +1,12 @@
 import ItemListContainer from '../components/ItemListContainer';
 
-
-
-function Inicio(){
-    return(
-        <>
-        <h1 className="titulo">PokeHome</h1> 
-        
-        <ItemListContainer limit={9} />
-        
-        
-        </>
-
-
-                 
-    )
+function Inicio({ addToCart }) {
+  return (
+    <>
+      <h1 className="titulo">Poketienda</h1> 
+      <ItemListContainer limit={9} addToCart={addToCart} />
+    </>
+  );
 }
 
-export default Inicio
+export default Inicio;

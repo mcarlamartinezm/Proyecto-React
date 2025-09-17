@@ -1,23 +1,23 @@
-import CartWidget from './CartWidget'
-import logo from '../assets/logo 1.avif'
+import CartWidget from './CartWidget';
+import logo from '../assets/logo 1.avif';
+import { Link } from "react-router-dom";
 
-function Navbar () {
-    return(
-    <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', background: 'gold', height: 40 }}>          
-          <div>
-            <img src={logo} alt="logo" style={{ height: '100px' }} />
-          </div>
-          <ul style={{ listStyle: 'none', display: 'flex', gap: '1rem'}}>
-            <li id='NavName'><a href="/" >Inicio</a></li>
-            <li id='NavName'><a href="/pages/crianza" >Crianza</a></li>
-            <li id='NavName'><a href="/pages/Pokemones" >Pokemones</a></li>
-            <li id='NavName'><a href="/pages/Maestro" >Maestro</a></li>
-            <li id='NavName'><a href="/pages/Contacto" >Contacto</a></li>
-          </ul>
-          <CartWidget />
+function Navbar({ totalItems, setIsCartOpen }) {
+  return (
+    <nav className="navbar">
+      <div>
+        <img src={logo} alt="logo" className="logo"/>
+      </div>
+      <ul className="nav-links">
+        <li id='NavName'><Link to="/" >Inicio</Link></li>
+        <li id='NavName'><Link to="/crianza" >Crianza</Link></li>
+        <li id='NavName'><Link to="/pokemones" >Pokemones</Link></li>
+        <li id='NavName'><Link to="/maestro" >Maestro</Link></li>
+        <li id='NavName'><Link to="/contacto" >Contacto</Link></li>
+      </ul>
+      <CartWidget totalItems={totalItems} setIsCartOpen={setIsCartOpen} />
     </nav>
-
-    )
+  );
 }
 
 export default Navbar;
