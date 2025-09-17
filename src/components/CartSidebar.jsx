@@ -1,4 +1,4 @@
-function CartSidebar({ cartItems, isCartOpen, setIsCartOpen }) {
+function CartSidebar({ cartItems, isCartOpen, setIsCartOpen, removeFromCart }) {
   const totalItems = cartItems.reduce((acc, item) => acc + item.cantidad, 0);
 
   return (
@@ -14,10 +14,12 @@ function CartSidebar({ cartItems, isCartOpen, setIsCartOpen }) {
               <li key={index} className="cart-item">
                 {item.sprite && <img src={item.sprite} alt={item.nombre} width={50} />}
                 <span>{item.nombre} x{item.cantidad}</span>
+                <button className="white-btn" onClick={() => removeFromCart(item.nombre)}>x</button>
               </li>
             ))}
           </ul>
           <p><strong>Total Pokémon:</strong> {totalItems}</p>
+          <button className="pay-cart-btn">Pagar mis pokemones 💲 </button>
         </>
       )}
     </div>

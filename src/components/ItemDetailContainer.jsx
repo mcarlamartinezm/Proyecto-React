@@ -40,7 +40,8 @@ function ItemDetailContainer({ addToCart }) {
       </div>
 
       {/* Botón + para agregar al carrito */}
-      <button className="add-cart-btn" onClick={addToCart}>¡Atrápalo en la pokecompra!</button>
+      <button className="add-cart-btn" onClick={() => addToCart(pokemon)}>¡Atrápalo en la pokecompra!</button>
+      
     </div>
   );
 }

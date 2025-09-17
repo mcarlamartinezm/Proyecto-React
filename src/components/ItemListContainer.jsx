@@ -15,11 +15,11 @@ function ItemListContainer({ limit, addToCart }) {
 
   return (
     <div id="cardcontainer">
-      <div>
+      
         {pokemones.map(poke => (
           <PokemonCard key={poke.name} name={poke.name} addToCart={addToCart} />
         ))}
-      </div>
+      
     </div>
   );
 }

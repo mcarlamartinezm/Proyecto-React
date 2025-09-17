@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-
 import Navbar from './components/Navbar';
 import Inicio from './pages/Inicio';
 import Crianza from './pages/Crianza';
@@ -20,14 +19,19 @@ function App() {
   const addToCart = (pokemon) => {
     setCartItems(prev => {
       const index = prev.findIndex(item => item.nombre === pokemon.nombre);
-      if (index >= 0) { 
+      if (index >= 0) {
         const updated = [...prev];
         updated[index].cantidad += 1;
         return updated;
-      } else {    
+      } else {
         return [...prev, { ...pokemon, cantidad: 1 }];
       }
     });
+  };
+
+  // 🔥 Eliminar Pokémon completo del carrito
+  const removeFromCart = (nombre) => {
+    setCartItems(prev => prev.filter(item => item.nombre !== nombre));
   };
 
   const totalItems = cartItems.reduce((acc, item) => acc + item.cantidad, 0);
@@ -36,7 +40,13 @@ function App() {
     <>
       <Router>
         <Navbar totalItems={totalItems} setIsCartOpen={setIsCartOpen} />
-        <CartSidebar cartItems={cartItems}isCartOpen={isCartOpen}setIsCartOpen={setIsCartOpen}/>
+
+        <CartSidebar
+          cartItems={cartItems}
+          isCartOpen={isCartOpen}
+          setIsCartOpen={setIsCartOpen}
+          removeFromCart={removeFromCart}
+        />
 
         <Routes>
           <Route path="/pokemon/:name" element={<ItemDetailContainer addToCart={addToCart} />} />
