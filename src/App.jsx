@@ -11,6 +11,7 @@ import Footer from "./pages/Footer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import CartSidebar from './components/CartSidebar';
+import CheckFirestore from './CheckFirestore'
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -59,7 +60,7 @@ function App() {
           <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
         </Routes>
       </Router>
-
+      <CheckFirestore />
       <Footer />
     </>
   );
