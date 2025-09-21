@@ -11,8 +11,22 @@ import Footer from "./pages/Footer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import CartSidebar from './components/CartSidebar';
-import CheckFirestore from './CheckFirestore'
+import CheckFirestore from "./components/CheckFirestore";
+import UploadPokemons from "./components/UploadPokemons";
 
+function App() {
+  return (
+    <div>
+      <h1>Poke E-commerce</h1>
+      <UploadPokemons />
+    </div>
+  );
+}
+
+export default App;
+
+
+/*
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -66,4 +80,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; */
