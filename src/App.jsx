@@ -14,6 +14,9 @@ import CartSidebar from './components/CartSidebar';
 import CheckFirestore from "./components/CheckFirestore";
 
 
+
+
+
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -67,4 +70,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
