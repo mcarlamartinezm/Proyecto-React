@@ -1,11 +1,12 @@
-import logo from '../assets/logo.avif'
+import logo from '../assets/logo.avif';
 
-
-function CartWidget() {
+function CartWidget({ totalItems, setIsCartOpen }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-    <img src={logo} alt="logo" style={{ height: '30px' }} />
-      <span style={{ marginLeft: '0.5rem' }}>6</span>
+    <div className="cart-widget" onClick={() => setIsCartOpen(true)}>
+      <span>
+         <img src={logo} alt="logo" className="logo2"/>
+        </span>
+      <span className="cart-count">{totalItems}</span>
     </div>
   );
 }
