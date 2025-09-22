@@ -1,10 +1,9 @@
-import ItemListContainer from '../components/ItemListContainer';
-
+import ItemListDestacados from "../components/ItemListDestacados";
 function Inicio({ addToCart }) {
   return (
     <>
       <h1 className="titulo">Poketienda</h1> 
-      <ItemListContainer limit={9} addToCart={addToCart} />
+      <ItemListDestacados addToCart={addToCart} />
     </>
   );
 }

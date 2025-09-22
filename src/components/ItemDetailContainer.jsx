@@ -1,26 +1,41 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getSinglePokemon } from "../asyncFunctions";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 function ItemDetailContainer({ addToCart }) {
-  const { name } = useParams(); // nombre del Pokemon desde la URL
+  const { name } = useParams();
   const [pokemon, setPokemon] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getSinglePokemon(name);
-      setPokemon(data);
+      try {
+        const docRef = doc(db, "pokemones", name);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setPokemon(docSnap.data());
+        } else {
+          console.log("No se encontró el Pokémon en Firestore");
+        }
+      } catch (error) {
+        console.error("Error al obtener Pokémon de Firestore:", error);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchData();
   }, [name]);
 
-  if (!pokemon) return <p>Poke Cargando... {name}...</p>;
+  if (loading) return <p>Cargando {name}...</p>;
+  if (!pokemon) return <p>Pokémon no encontrado.</p>;
 
   return (
     <div id="pokecontainer">
       <h1>{pokemon.nombre}</h1>
-      {pokemon.sprite && <img src={pokemon.sprite} alt={pokemon.nombre} />}
-      
+      {pokemon.sprite && (
+        <img src={pokemon.sprite} alt={pokemon.nombre} className="poke-img" />
+      )}
       <p>{pokemon.descripcion}</p>
 
       <div>
@@ -30,18 +45,20 @@ function ItemDetailContainer({ addToCart }) {
         <strong>Habilidades:</strong> {pokemon.abilities.join(", ")}
       </div>
 
-      <div>
-        <strong>Stats:</strong>
+      <div className="stats-box">
+        <h3>Stats</h3>
         <ul>
-          {pokemon.stats.map(s => (
-            <li key={s.name}>{s.name}: {s.value}</li>
+          {pokemon.stats.map((s) => (
+            <li key={s.name}>
+              {s.name}: {s.value}
+            </li>
           ))}
         </ul>
       </div>
 
-      {/* Botón + para agregar al carrito */}
-      <button className="add-cart-btn" onClick={() => addToCart(pokemon)}>¡Atrápalo en la pokecompra!</button>
-      
+      <button className="add-cart-btn" onClick={() => addToCart({ ...pokemon, cantidad: 1 })}>
+        Agregar al carrito
+      </button>
     </div>
   );
 }

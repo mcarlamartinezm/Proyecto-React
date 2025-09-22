@@ -13,10 +13,6 @@ import ItemListContainer from "./components/ItemListContainer";
 import CartSidebar from './components/CartSidebar';
 import CheckFirestore from "./components/CheckFirestore";
 
-
-
-
-
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -34,9 +30,16 @@ function App() {
     });
   };
 
-  // 🔥 Eliminar Pokémon completo del carrito
   const removeFromCart = (nombre) => {
     setCartItems(prev => prev.filter(item => item.nombre !== nombre));
+  };
+
+  const updateQuantity = (nombre, nuevaCantidad) => {
+    setCartItems(prev =>
+      prev.map(item =>
+        item.nombre === nombre ? { ...item, cantidad: Math.max(1, nuevaCantidad) } : item
+      )
+    );
   };
 
   const totalItems = cartItems.reduce((acc, item) => acc + item.cantidad, 0);
@@ -45,14 +48,7 @@ function App() {
     <>
       <Router>
         <Navbar totalItems={totalItems} setIsCartOpen={setIsCartOpen} />
-
-        <CartSidebar
-          cartItems={cartItems}
-          isCartOpen={isCartOpen}
-          setIsCartOpen={setIsCartOpen}
-          removeFromCart={removeFromCart}
-        />
-
+        <CartSidebar cartItems={cartItems} isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} removeFromCart={removeFromCart} setCartItems={setCartItems} />
         <Routes>
           <Route path="/pokemon/:name" element={<ItemDetailContainer addToCart={addToCart} />} />
           <Route path="/category/:categoryName" element={<ItemListContainer addToCart={addToCart} />} />
