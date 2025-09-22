@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react"; 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AOS from "aos"; 
+import "aos/dist/aos.css"; 
 import './App.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 import Navbar from './components/Navbar';
 import Inicio from './pages/Inicio';
 import Crianza from './pages/Crianza';
@@ -16,6 +22,11 @@ import CheckFirestore from "./components/CheckFirestore";
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  //inicializar AOS
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   const addToCart = (pokemon) => {
     setCartItems(prev => {
@@ -48,7 +59,13 @@ function App() {
     <>
       <Router>
         <Navbar totalItems={totalItems} setIsCartOpen={setIsCartOpen} />
-        <CartSidebar cartItems={cartItems} isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} removeFromCart={removeFromCart} setCartItems={setCartItems} />
+        <CartSidebar
+          cartItems={cartItems}
+          isCartOpen={isCartOpen}
+          setIsCartOpen={setIsCartOpen}
+          removeFromCart={removeFromCart}
+          setCartItems={setCartItems}
+        />
         <Routes>
           <Route path="/pokemon/:name" element={<ItemDetailContainer addToCart={addToCart} />} />
           <Route path="/category/:categoryName" element={<ItemListContainer addToCart={addToCart} />} />
@@ -62,6 +79,17 @@ function App() {
       </Router>
       <CheckFirestore />
       <Footer />
+      <ToastContainer 
+            position="top-right" 
+            autoClose={3000} 
+            hideProgressBar={false} 
+            newestOnTop={false} 
+            closeOnClick 
+            rtl={false} 
+            pauseOnFocusLoss 
+            draggable 
+            pauseOnHover
+          />
     </>
   );
 }

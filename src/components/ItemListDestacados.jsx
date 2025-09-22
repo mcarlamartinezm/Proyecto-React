@@ -4,7 +4,7 @@ import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../firebase";
 import ItemList from "./ItemList";
 
-const destacados = ["Bulbasaur","Charmander","Squirtle","Pikachu","Vulpix","Jigglypuff","Machop","Slowpoke","Staryu","Magikarp"];
+const destacados = ["Bulbasaur","Charmander","Squirtle","Pikachu","Vulpix","Jigglypuff","Machop","Slowpoke","Staryu","Magikarp","Cubone","Dratini"];
 
 function ItemListDestacados({ addToCart }) {
   const [pokemones, setPokemones] = useState([]);
