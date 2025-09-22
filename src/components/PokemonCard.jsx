@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
+import "aos/dist/aos.css";
 
 function PokemonCard({ pokemon, addToCart }) {
   if (!pokemon) return <p>Cargando...</p>;
 
   return (
-    <div className="pokecard">
+    <div
+      className="pokecard"
+      data-aos="fade-up"        // animación
+      data-aos-duration="1000"  // duración en ms
+      data-aos-delay="100"     // retardo opcional
+    >
       <h3>{pokemon.nombre}</h3>
+
       {pokemon.sprite && (
         <img
           className="pokemon-img"
@@ -13,6 +20,7 @@ function PokemonCard({ pokemon, addToCart }) {
           alt={pokemon.nombre}
         />
       )}
+
       <p>{pokemon.descripcion}</p>
 
       <Link to={`/pokemon/${pokemon.nombre}`}>

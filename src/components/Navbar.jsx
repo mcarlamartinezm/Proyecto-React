@@ -1,13 +1,11 @@
 import CartWidget from './CartWidget';
-import logo from '../assets/logo 1.avif';
 import { Link } from "react-router-dom";
+import InicioBtn from './InicioBtn';
 
 function Navbar({ totalItems, setIsCartOpen }) {
   return (
     <nav className="navbar">
-      <div>
-        <img src={logo} alt="logo" className="logo"/>
-      </div>
+      <InicioBtn />
       <ul className="nav-links">
         <li className='NavName'><Link to="/" >Home</Link></li>
         <li className='NavName'><Link to="/crianza" >Crianza</Link></li>

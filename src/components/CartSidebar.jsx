@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 function CartSidebar({ cartItems, isCartOpen, setIsCartOpen, removeFromCart, setCartItems }) {
-  // Calcula total general
+
+  //------------------------- Calculo total general
   const totalItems = cartItems.reduce((acc, item) => acc + item.cantidad, 0);
   const totalPrice = cartItems.reduce((acc, item) => acc + item.cantidad * item.precio, 0);
 
-  // Funciones para aumentar o disminuir cantidad
+  //------------------------ Funciones para aumentar o disminuir cantidad
   const increment = (nombre) => {
     setCartItems(prev => prev.map(item =>
       item.nombre === nombre
@@ -22,21 +23,21 @@ function CartSidebar({ cartItems, isCartOpen, setIsCartOpen, removeFromCart, set
     ));
   };
 
-  // Simula pago
+  //----------------------------- Simular pago
   const handlePay = () => {
     if(cartItems.length === 0){
       alert("El carrito está vacío. No se puede pagar.");
       return;
     }
     alert("Redirigiendo a la pasarela de pago... 💲");
-    // Aquí podrías redirigir a otra página o abrir modal
+
   };
+
 
   return (
     <div className={`cart-sidebar ${isCartOpen ? 'open' : ''}`}>
       <button className="close-btn" onClick={() => setIsCartOpen(false)}>x</button>
       <h2>Carrito</h2>
-
       {cartItems.length === 0 ? (
         <p>Carrito vacío</p>
       ) : (
