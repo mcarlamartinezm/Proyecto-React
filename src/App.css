@@ -8,7 +8,7 @@ body {
 a{
   text-decoration: none;
   color: black;
-  font-size: 1.2rem;
+  font-size: none;
   padding: 8px;
   }
 
@@ -35,33 +35,34 @@ h3{
 /* ----------------------------------------Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1rem;
   background: gold;
   align-items: center;
-  height: 60px;
+  height: 45px;
 }
 
 .logo { 
-  height: 120px; 
+  height: 100px; 
   position: relative;
-  left: 350px;
-  top: 30px;
+  top: 20px;
+  left: 40px;
 }
 
 .logo2{
-  height: 50px; 
+  height: 38px; 
+  margin-left: 20px ;
 }
 
 
 .nav-links { 
   list-style: none; 
   display: flex; 
-  gap: 1rem; 
+   
 }
 
-#NavName { 
-  font-size: 1rem; 
+.NavName { 
+  font-size: 0.8rem; 
   text-align: center; 
 }
 
@@ -70,14 +71,12 @@ h3{
 /* ----------------------------------CartWidget */
 .cart-widget {
   cursor: pointer; 
-  position: relative; 
-  right: 300px;
 }
 
-
 .cart-count { 
-  margin-left: 0.5rem; 
+  margin-left: 0.1rem; 
   font-weight: bold; 
+  font-size: 0.8rem;
 }
 
 /* ------------------------------------CartSidebar */
@@ -133,7 +132,6 @@ h3{
   
 }
 
-
 .pay-cart-btn {
   position: relative;
   left: 120px;
@@ -172,6 +170,15 @@ h3{
   box-sizing: border-box;
 }
 
+.pokemon-img {
+  width: 150px;  
+  height: 150px;  
+  object-fit: contain; 
+  display: block;
+  margin: 0 auto; 
+}
+
+
 #mas{
   margin-top: 10px;
   background-color: gold;
@@ -185,13 +192,77 @@ h3{
   border-radius: 6px;
   padding: 5px 10px;
 }
+
 /*-----------------------------------------Descripción*/
 
-#pokecontainer{
+
+#pokecontainer {
   text-align: center;
   padding: 2%;
-    
 }
+
+/*------------- Imagen principal */
+.poke-img {
+  width: 200px;
+  height: auto;
+  margin: 10px 0;
+  border: solid 3px gold;
+  padding: auto;
+  border-radius: 999px;
+}
+
+/* Caja de stats */
+.stats-box {
+  margin: 20px auto;
+  padding: 15px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  width: fit-content;
+  background: #f5f5f5;
+}
+
+.stats-box h3 {
+  margin-bottom: 10px;
+}
+
+.stats-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stats-box li {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+/*-------- Botón de agregar al carrito */
+.add-cart-btn {
+  background-color: gold;
+  border: solid 2px black;
+  color: black;
+  padding: 8px 12px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.add-cart-btn:hover {
+  background-color: darkorange;
+}
+
+
+.pokeimg-detail{
+   width: 250px;  
+  height: 250px;  
+  object-fit: contain; 
+  display: block;
+  margin: 0 auto; 
+}
+
 /*------------------------------------------Contacto*/
 
 
