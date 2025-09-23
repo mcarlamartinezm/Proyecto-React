@@ -2,7 +2,7 @@ function Maestro(){
     return(
         <>
         <h1 className="titulo">Maestro Pokemon</h1>
-        <p className="crianza"> "En construcción"
+        <p className="bienve-text"> "En construcción"
 
         </p>
         </>

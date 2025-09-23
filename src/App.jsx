@@ -80,7 +80,7 @@ function App() {
       <CheckFirestore />
       <Footer />
       <ToastContainer 
-            position="top-right" 
+            position="top-center" 
             autoClose={3000} 
             hideProgressBar={false} 
             newestOnTop={false} 
@@ -89,6 +89,9 @@ function App() {
             pauseOnFocusLoss 
             draggable 
             pauseOnHover
+            toastClassName={({ type }) => 
+              type === "success" ? "toast-success" : "toast-error"
+            }
           />
     </>
   );
