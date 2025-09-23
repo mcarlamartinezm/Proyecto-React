@@ -4,7 +4,7 @@ function Contacto(){
     return(
         <>
         <div className="contact-container">
-        <h1>PokeContacto</h1>
+        <h1 className="titulo2">PokeContacto</h1>
         <form action="submit" className="contactform">
             <label htmlFor="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" />
