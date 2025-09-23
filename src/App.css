@@ -20,6 +20,7 @@ a{
 h1{
   font-size: 1.9rem;
   text-align: center;
+  margin: 12vh 0 1vh  0;
   }
 
 h2{
@@ -31,22 +32,29 @@ h3{
 }
 /*-----------------inicio */
 
-#bienve-text {
-  font-size: 0.9rem;
-  padding: 1% 10%;
+.bienve-text {
+  font-size: 1.2rem;
+  padding: 1% 20%;
   text-align: center;
+  margin: 5% 0;
 }
 
 
 /* ----------------------------------------Navbar */
 .navbar {
+  position: fixed;   
+  top: 0;           
+  left: 0;           
+  width: 100%;      
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 1rem;
   background: gold;
-  align-items: center;
   height: 45px;
+  z-index: 1000;     
 }
+
 
 .logo { 
   height: 100px; 
@@ -75,20 +83,59 @@ h3{
 
 
 /* ----------------------------------CartWidget */
-.cart-widget {
-  cursor: pointer; 
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.cart-count { 
-  margin-left: 0.1rem; 
-  font-weight: bold; 
-  font-size: 0.8rem;
+.cart-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
+
+.cart-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.cart-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-item-prices {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: black;
+}
+
 
 /* ------------------------------------CartSidebar */
 .cart-sidebar {
   position: fixed;
-  top: 20px;
+  top: 0px;
   right: -335px;
   width: 300px;
   height: 100%;
@@ -113,7 +160,7 @@ h3{
   border-radius: 6px;
   width: 32px;
   position: relative;
-  left: 270px;
+  left: 250px;
   top: 20px;
   }
 
@@ -132,7 +179,7 @@ h3{
 .white-btn{
   font-size: 1em;
   color: black;
-  background-color: white;
+  background-color: orange;
   border: none;
   border-radius: 6px;
   
@@ -140,15 +187,35 @@ h3{
 
 .pay-cart-btn {
   position: relative;
-  left: 120px;
-  top: 20px;
-  color: gold;
+  left: 210px;
+  bottom: 60px;
+  color: black;
   margin-top: 10px;
-  background-color: black;
+  background-color: white;
   border-radius: 6px;
   padding: 5px 10px;
 }
 
+/*------------------Toastify */
+
+.toast-success {
+  background: gold !important;
+  color: black !important;
+  position: relative;
+  top: 200px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.toast-progress {
+  background: black !important;
+}
+
+.toast-error {
+  background: #f44336 !important;
+  color: #fff !important;
+}
 
 /* -------------------------------------------PokemonCard */
 #cardcontainer {
@@ -271,55 +338,70 @@ h3{
 
 /*------------------------------------------Contacto*/
 
-
-form{
-  display: grid;
-  grid-template-columns: 1fr, 3fr;
-  width: 40%;
-  padding: 50px;
-  margin: 8% 25%;
-  box-shadow: 2px 2px 10px orange;
-  border-radius: 20px;
+.contact-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center; 
+  margin: 5%;
+  
+  
 }
 
-label{
+.contactform {
+  display: grid;
+  grid-template-columns: 1fr 3fr; 
+  width: 40%;          
+  padding: 50px;   
+  box-shadow: 2px 2px 10px orange;
+  border-radius: 20px;
+  gap: 10px;
+}
+
+label {
   color: black;
   position: relative;
   left: 10px;
 }
 
-input{
-border-color: orange;
-border-radius: 6px;
-height: 25px;
-margin: 5px;
-min-width: 90%;
-max-width: 50%;
+input,
+textarea {
+  border: 1px solid orange;
+  border-radius: 6px;
+  padding: 5px;
+  margin: 5px;
+  min-width: 90%;
+  max-width: 50%;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
 }
 
-#contactbutton{
+textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+#contactbutton {
+  grid-column: span 2;   /* ocupa todo el ancho del formulario */
   height: 40px;
   color: black;
   background-color: gold;
   border: none;
   border-radius: 6px;
   width: 200px;
-  position: relative;
-  left: 5px;
-  top: 10px;
+  margin: 10px auto 0 auto; /* centra el botón */
 }
 
-.crianza{
-  height: 300px;
-  font-size: 3rem;
-}
 
-#footer{
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 1rem;
+/*--------------------------------- footer*/
+
+#footer {
   background-color: gold;
   height: 100px;
+  display: flex;
+  align-items: flex-end; 
+  justify-content: center;   
   font-size: 0.8rem;
+  padding-bottom: 15px;     
+  box-sizing: border-box;  
 }
