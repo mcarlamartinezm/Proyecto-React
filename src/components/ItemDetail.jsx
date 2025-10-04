@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getPokemonByName } from "../firebaseFunctions"; // tu función para traer un Pokémon de Firestore
+import { getPokemonByName } from "../firebaseFunctions"; // función para traer un Pokémon de Firestore
 import ItemCount from "./ItemCount";
 
 function ItemDetailContainer({ addToCart }) {

@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-// Configuración de tu proyecto Firebase
+// Configuración proyecto Firebase
 const firebaseConfig = {
   apiKey: "TU_API_KEY",
   authDomain: "react-pokemon-2025.firebaseapp.com",
