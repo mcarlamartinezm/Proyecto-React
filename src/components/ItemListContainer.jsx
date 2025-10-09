@@ -6,7 +6,7 @@ import ItemList from "./ItemList";
 function ItemListContainer({ limit, addToCart, showSpecificPokemons = false }) {
   const [pokemones, setPokemones] = useState([]);
   const startPokemons = ["bulbasaur", "charmander", "squirtle", "pikachu", "vulpix", "jigglypuff", "machop", "slowpoke", "staryu", "magikarp"];
-
+  //--------------------Pokemones especificos de la pagina de inicio
   useEffect(() => {
     async function fetchPokemones() {
       try {
@@ -15,7 +15,7 @@ function ItemListContainer({ limit, addToCart, showSpecificPokemons = false }) {
         let list = querySnapshot.docs.map(doc => doc.data());
 
         if (showSpecificPokemons) {
-          // Filtrar solo los pokemones específicos de inicio
+          
           list = list.filter(p => startPokemons.includes(p.nombre.toLowerCase()));
         } else if (limit) {
           list = list.slice(0, limit);

@@ -49,7 +49,6 @@ function ItemDetailContainer({ addToCart }) {
         </ul>
       </div>
 
-      {/* Renderizamos ItemCount solo si no se ha agregado al carrito */}
       {!addedToCart && (
         <ItemCount stock={pokemon.stock || 99} initial={1} onAdd={handleAddToCart} />
       )}

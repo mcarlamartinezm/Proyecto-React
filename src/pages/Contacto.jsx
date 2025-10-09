@@ -1,5 +1,3 @@
-
-
 function Contacto(){
     return(
         <>
@@ -18,7 +16,7 @@ function Contacto(){
             <label htmlFor="cuentanos">¡Cuéntanos!</label>
             <textarea id="cuentanos" name="cuentanos"></textarea>
 
-            <button id="contactbutton">Enviar</button>
+            <button className="contactbutton">Enviar</button>
         </form>
         </div>     
         </>    

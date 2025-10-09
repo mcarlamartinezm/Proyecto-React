@@ -1,7 +1,12 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 function CartSidebar({ cartItems, isCartOpen, setIsCartOpen, removeFromCart, setCartItems }) {
+
+  const navigate = useNavigate(); // redirigir 
 
   //------------------------- Calculo total general
   const totalItems = cartItems.reduce((acc, item) => acc + item.cantidad, 0);
@@ -42,7 +47,12 @@ function CartSidebar({ cartItems, isCartOpen, setIsCartOpen, removeFromCart, set
         closeOnClick: true,
         draggable: true
       });
+      setTimeout(() => {
+        setIsCartOpen(false);
+        navigate("/checkout");
+      }, 1000);
     };
+    
 
 
   return (
@@ -83,22 +93,12 @@ function CartSidebar({ cartItems, isCartOpen, setIsCartOpen, removeFromCart, set
 
           <p><strong>Total Pokémon:</strong> {totalItems}</p>
           <p><strong>Total a pagar:</strong> ${totalPrice}</p>
-          <button className="pay-cart-btn" onClick={handlePay}>Ir a pagar</button>
+          <Link to="/checkout" state={{ cartItems, totalPrice }} className="pay-cart-btn">Ir a pagar</Link>
+
         </>
       )}
 
-      {/* Toastify container */}
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        pauseOnHover
-        draggable
-      />
-
-    </div>
+      </div>
   );
 }
 

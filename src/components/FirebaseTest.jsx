@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase"; // ajustar la ruta
+import { db } from "../firebase"; 
 
 // Funciones 
 async function getSinglePokemon(idOrName) {

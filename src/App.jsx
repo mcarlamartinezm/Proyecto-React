@@ -18,6 +18,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import CartSidebar from './components/CartSidebar';
 import CheckFirestore from "./components/CheckFirestore";
+import Checkout from "./pages/Checkout.jsx";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -75,6 +76,7 @@ function App() {
           <Route path="/maestro" element={<Maestro />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </Router>
       <CheckFirestore />
